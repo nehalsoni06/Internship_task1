@@ -23,13 +23,13 @@ Deliverables required by the task:
 
 | # | Deliverable | Status |
 |---|-------------|--------|
-| 1 | Register map (base + offsets, R/W behavior) | ✅ Done |
-| 2 | RTL implementation (synchronous, clean reset, no magic numbers) | ✅ Done |
-| 3 | SoC integration (address decode, bus connection, signal exposure) | ✅ Done |
-| 4 | Software validation (C program, UART-visible output) | 🔧 In progress |
-| 5 | Simulation proof (log/waveform, end-to-end) | 🔧 In progress |
-| 6 | Documentation (this README) | ✅ Done |
-| 7 | Hardware validation (VSDSquadron FPGA) | ❌ Not started |
+| 1 | Register map (base + offsets, R/W behavior) | Done |
+| 2 | RTL implementation (synchronous, clean reset, no magic numbers) |  Done |
+| 3 | SoC integration (address decode, bus connection, signal exposure) |  Done |
+| 4 | Software validation (C program, UART-visible output) | Done |
+| 5 | Simulation proof (log/waveform, end-to-end) | Done |
+| 6 | Documentation (this README) | Done |
+| 7 | Hardware validation (VSDSquadron FPGA) | Done |
 
 Submission structure:
 ```
@@ -288,7 +288,7 @@ tx=0xA5 rx=0xA5
 tx=0x5A rx=0x5A
 Done!
 ```
-✅ Passes — confirms the SPI FSM itself is correct.
+Passes — confirms the SPI FSM itself is correct.
 
 ---
 
@@ -500,15 +500,13 @@ cd RTL
 iverilog -o sim.vvp rtl/spi_master.v test/spi_master_tb.v
 vvp sim.vvp
 ```
-Expected: `RX: 0xA5`, `BUSY=0 DONE=1`, `RX: 0x5A`, `Done!` — ✅ confirmed passing.
+Expected: `RX: 0xA5`, `BUSY=0 DONE=1`, `RX: 0x5A`, `Done!` —  confirmed passing.
 
 **B. Rebuild firmware after any `spi_test.c` change**
 ```bash
 cd Firmware
 make
 ```
-⚠️ This step is easy to forget — if you edit `spi_test.c` but skip `make`,
-the simulator re-loads the *old* firmware image and nothing changes.
 
 **C. Full SoC-level simulation**
 ```bash
@@ -531,12 +529,8 @@ pass
 pass
 all passed
 ```
-Repeated `LEDS = ...` lines after this point are expected — the program's
-final `while(1);` halt state gets logged every clock cycle by the LED
-monitor; that's not a bug, just verbose (harmless) logging of the idle
-state.
+![SOC OUTPUT](screenshots/soc_op.png)
 
----
 
 ## 9. Bugs Found & Fixed Along the Way
 
@@ -562,11 +556,6 @@ state.
 
 ---
 
-## 10. Current Status
-
-- ✅ Standalone IP simulation: **passing**
-- 🔧 SoC-level simulation: address/typo fixes applied, **rebuild + re-run in progress** to confirm full pass/fail output
-- ❌ Hardware validation (VSDSquadron FPGA): not yet started
 
 ### Next steps
 1. Confirm `make` picked up the latest `spi_test.c` changes (check object/hex file timestamps).
@@ -575,6 +564,18 @@ state.
 4. Flash to VSDSquadron FPGA; validate via UART log and/or LED toggling with a `MOSI→MISO` jumper loopback.
 
 ---
+
+## 10. Harware 
+
+```bash
+make build
+sudo make flash // after connecting the board
+```
+![Programming](screenshots/hw_prog.png)
+![Result](screenshots/hw_result.png)
+Result:
+Led is on if the test Passed
+![Board](screenshots/board.jpeg)
 
 ## 11. Evaluation Checklist
 
