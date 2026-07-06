@@ -44,6 +44,7 @@ ip/
 ```
 
 ---
+![PATH](screenshots/path.png)
 
 # How to Integrate
 
@@ -98,12 +99,12 @@ Compile the firmware:
 
 ```bash
 make clean
-make example_loopback.hex
+make example_loopback.bram.hex
 ```
 
 📷 **Firmware Compilation Screenshot**
 
-> *Insert Screenshot Here*
+![Compilation](screenshots/hexfile.png)
 
 ---
 
@@ -126,7 +127,8 @@ Received : A5
 
 PASS: loopback matched
 ```
-
+![Bit stream](screenshots/bitstream.png)
+![Output](screenshots/hardware.png)
 
 
 ### Hardware Setup
@@ -143,7 +145,7 @@ SPI_MOSI (Pin 42)
 
 📷 **Hardware Setup Screenshot**
 
-> *Insert Screenshot Here*
+![BOARD](screenshots/board.jpeg)
 
 ---
 
