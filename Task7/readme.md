@@ -8,6 +8,29 @@ This repository contains a memory-mapped **SPI (Serial Peripheral Interface) Mas
 The IP enables the RISC-V processor to communicate with SPI peripherals such as Flash memory, sensors, ADCs, DACs, displays, and EEPROMs using a simple software driver and memory-mapped registers.
 
 ---
+## IP Overview
+### Purpose of the IP
+
+The SPI Master IP provides a memory-mapped Serial Peripheral Interface (SPI) controller for the VSDSquadron FM BasicRISCV SoC. It enables the RISC-V processor to communicate with SPI-compatible peripheral devices through a simple register interface. The IP manages SPI clock generation, chip-select control, and full-duplex serial data transfers, making it easy for software to exchange data with external devices.
+
+### Typical Use Cases
+
+The SPI Master IP can be used to interface the processor with a wide range of SPI peripherals, including:
+
+SPI Flash memory
+EEPROM devices
+ADC (Analog-to-Digital Converters)
+DAC (Digital-to-Analog Converters)
+Temperature, pressure, and motion sensors
+OLED and LCD displays
+SD card modules operating in SPI mode
+External microcontrollers and communication modules
+
+### Why/When Someone Would Use It
+
+This IP is useful whenever a processor needs a reliable, hardware-based SPI interface to communicate with external peripherals. Instead of implementing SPI communication entirely in software (bit-banging), the SPI Master IP performs clock generation, data shifting, and status monitoring in hardware, reducing processor overhead and improving communication reliability.
+
+The memory-mapped register interface allows software to initialize the SPI controller, configure the clock divider, transmit data, receive data, and monitor transfer completion using simple register read and write operations. This makes the IP easy to integrate into embedded systems based on the VSDSquadron FPGA platform.
 
 # Repository Structure
 
@@ -104,11 +127,7 @@ Received : A5
 PASS: loopback matched
 ```
 
-📷 **UART Output Screenshot**
 
-> *Insert Screenshot Here*
-
----
 
 ### Hardware Setup
 
