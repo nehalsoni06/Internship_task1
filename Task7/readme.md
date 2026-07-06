@@ -1,4 +1,5 @@
 # SPI Master IP for VSDSquadron FM BasicRISCV
+## "Plug and play IP"
 
 ## Overview
 
