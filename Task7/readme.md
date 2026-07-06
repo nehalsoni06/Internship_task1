@@ -166,11 +166,11 @@ SPI_MOSI (Pin 42)
 ## Known Limitations
 
 
-8-bit (single-byte) transfers only — no burst/multi-byte mode.
-SPI Mode 0 only (CPOL=0, CPHA=0) — not configurable.
-Single chip-select line, automatically toggled — one slave per instance.
-No interrupt output — polling only.
-TXDATA is write-only; RXDATA is read-only
+- 8-bit (single-byte) transfers only — no burst/multi-byte mode.
+- SPI Mode 0 only (CPOL=0, CPHA=0) — not configurable.
+- Single chip-select line, automatically toggled — one slave per instance.
+- No interrupt output — polling only.
+- TXDATA is write-only; RXDATA is read-only
 # Author
 
 **Nehal Soni**
