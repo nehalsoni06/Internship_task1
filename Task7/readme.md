@@ -60,7 +60,8 @@ ip/
 
 📷 **RTL Integration Screenshot**
 
-> *Insert Screenshot Here*
+![SOC](screenshots/int_1.png)
+![SOC1](screenshots/int_2.png)
 
 ---
 
@@ -142,6 +143,8 @@ MOSI ─────────── MISO
 SPI_MOSI (Pin 42)
         │
         └──────────────► SPI_MISO (Pin 43)
+        
+![pin](screenshots/pcf.png)
 
 📷 **Hardware Setup Screenshot**
 
